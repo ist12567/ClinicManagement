@@ -66,7 +66,7 @@
     <ApplicationIcon>Stethoscope.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>7BB645FD201BF494CCEB160B5AE851F3BA4781EF</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>569D04BE89C7342DCADA8D6A13B6BBAFEDDA3327</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>ACDClinicManagement.App_TemporaryKey.pfx</ManifestKeyFile>
