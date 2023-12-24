@@ -1,0 +1,95 @@
+﻿<Window
+    x:Class="ACDClinicManagement.App.Views.BackupRestoreViews.BackupRestoreWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="پشتیبان‌گیری و بازیابی پایگاه‌داده"
+    KeyDown="Window_KeyDown"
+    Loaded="Window_Loaded"
+    Style="{StaticResource WindowStyle}">
+    <Grid Style="{StaticResource WindowBodyGridStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <GroupBox Grid.Row="0" Header="عملیات پشتیبان‌گیری">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Style="{StaticResource WarningStyleTextBlock}"
+                    Text="نسخه‌های پشتیبان پایگاه‌داده را در درایوهای دیگر قرار دهید"
+                    TextWrapping="Wrap" />
+                <Button
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Click="ButtonSelectBackupPath_Click"
+                    ContentTemplate="{StaticResource ComputerImageButton}"
+                    Style="{StaticResource BlackButton}"
+                    ToolTip="انتخاب محل نگهداری" />
+                <TextBlock
+                    Name="TextBlockBackupPath"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    HorizontalAlignment="Center"
+                    IsEnabled="False" />
+                <Button
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Click="ButtonBackupDataBase_Click"
+                    ContentTemplate="{StaticResource CheckMarkImageButton}"
+                    Style="{StaticResource GreenButton}"
+                    ToolTip="عملیات پشتیبان‌گیری" />
+            </Grid>
+        </GroupBox>
+        <GroupBox Grid.Row="1" Header="عملیات بازیابی">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Style="{StaticResource WarningStyleTextBlock}"
+                    Text="عملیات بازیابی، پایگاه‌داده را با فایل انتخاب شده تعویض خواهد کرد"
+                    TextWrapping="Wrap" />
+                <Button
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Click="ButtonSelectRestorePath_Click"
+                    ContentTemplate="{StaticResource ComputerImageButton}"
+                    Style="{StaticResource BlackButton}"
+                    ToolTip="انتخاب از محل نگهداری" />
+                <TextBlock
+                    Name="TextBlockRestorePath"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    HorizontalAlignment="Center" />
+                <Button
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    VerticalAlignment="Center"
+                    Click="ButtonRestoreDataBase_Click"
+                    ContentTemplate="{StaticResource RefreshImageButton}"
+                    Style="{StaticResource PurpleButton}"
+                    ToolTip="عملیات بازیابی" />
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>
