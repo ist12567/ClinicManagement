@@ -1,0 +1,74 @@
+﻿<Window
+    x:Class="ACDClinicManagement.App.Views.LoginViews.LoginWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="ورود به سیستم"
+    Loaded="Window_Loaded"
+    Style="{StaticResource WindowStyle}"
+    WindowStyle="None">
+    <Grid Style="{StaticResource WindowBodyGridStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Image
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            Source="/Contents/Images/AsiaCando.gif" />
+        <TextBlock
+            Grid.Row="1"
+            Grid.Column="0"
+            Style="{StaticResource TitleStyleTextBlock}"
+            Text="نام کاربری" />
+        <TextBox
+            Name="TextBoxUserName"
+            Grid.Row="1"
+            Grid.Column="1"
+            Style="{StaticResource LeftToRightStyleTextBox}" />
+        <TextBlock
+            Grid.Row="2"
+            Grid.Column="0"
+            Style="{StaticResource TitleStyleTextBlock}"
+            Text="کلمه‌ی عبور" />
+        <PasswordBox
+            Name="PasswordBoxPassword"
+            Grid.Row="2"
+            Grid.Column="1" />
+        <StackPanel
+            Grid.Row="3"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            HorizontalAlignment="Center"
+            Orientation="Horizontal">
+            <Button
+                Click="ButtonLogin_Click"
+                ContentTemplate="{StaticResource LoginImageButton}"
+                IsDefault="True"
+                Style="{StaticResource BlueButton}"
+                ToolTip="ورود" />
+            <Button
+                Click="ButtonExit_Click"
+                ContentTemplate="{StaticResource CancelImageButton}"
+                IsCancel="True"
+                Style="{StaticResource RedButton}"
+                ToolTip="خروج" />
+        </StackPanel>
+        <StackPanel
+            Grid.Row="4"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            HorizontalAlignment="Center"
+            Orientation="Horizontal">
+            <Image Source="/Contents/Images/Stethoscope.ico" />
+        </StackPanel>
+    </Grid>
+</Window>

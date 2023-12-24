@@ -1,0 +1,202 @@
+﻿<Window
+    x:Class="ACDClinicManagement.App.Views.LocationsViews.LocationsWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="اطلاعات موقعیت‌ها"
+    KeyDown="Window_KeyDown"
+    Loaded="Window_Loaded"
+    Style="{StaticResource WindowStyle}">
+    <Grid Style="{StaticResource WindowBodyGridStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <TextBlock
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Text="استان‌ها" />
+            <StackPanel
+                Grid.Row="1"
+                Grid.Column="0"
+                Orientation="Horizontal">
+                <Button
+                    Name="ButtonNewProvince"
+                    Click="ButtonNewProvince_Click"
+                    ContentTemplate="{StaticResource AddImageButton}"
+                    Style="{StaticResource BlueButton}"
+                    ToolTip="افزودن استان جدید" />
+                <Button
+                    Name="ButtonEditProvince"
+                    Click="ButtonEditProvince_Click"
+                    ContentTemplate="{StaticResource EditImageButton}"
+                    Style="{StaticResource YellowButton}"
+                    ToolTip="ویرایش استان انتخاب‌شده" />
+                <Button
+                    Name="ButtonDeleteProvince"
+                    Click="ButtonDeleteProvince_Click"
+                    ContentTemplate="{StaticResource DeleteImageButton}"
+                    Style="{StaticResource RedButton}"
+                    ToolTip="حذف استان انتخاب‌شده" />
+            </StackPanel>
+            <TextBox
+                Name="TextBoxSearchProvince"
+                Grid.Row="1"
+                Grid.Column="1"
+                VerticalContentAlignment="Center"
+                TextChanged="TextBoxSearchProvince_TextChanged"
+                ToolTip="جستجو در استان‌ها">
+                <TextBox.Background>
+                    <ImageBrush
+                        AlignmentX="Right"
+                        ImageSource="/Contents/Images/search-9-xxl.png"
+                        Stretch="Uniform" />
+                </TextBox.Background>
+            </TextBox>
+            <DataGrid
+                Name="DataGridProvinces"
+                Grid.Row="2"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                AutoGeneratingColumn="DataGrid_AutoGeneratingColumn"
+                SelectionChanged="DataGridProvinces_SelectionChanged" />
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <TextBlock
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Text="شهرها" />
+            <StackPanel
+                Grid.Row="1"
+                Grid.Column="0"
+                Orientation="Horizontal">
+                <Button
+                    Name="ButtonNewCity"
+                    Click="ButtonNewCity_Click"
+                    ContentTemplate="{StaticResource AddImageButton}"
+                    Style="{StaticResource BlueButton}"
+                    ToolTip="افزودن شهر جدید" />
+                <Button
+                    Name="ButtonEditCity"
+                    Click="ButtonEditCity_Click"
+                    ContentTemplate="{StaticResource EditImageButton}"
+                    Style="{StaticResource YellowButton}"
+                    ToolTip="ویرایش شهر انتخاب‌شده" />
+                <Button
+                    Name="ButtonDeleteCity"
+                    Click="ButtonDeleteCity_Click"
+                    ContentTemplate="{StaticResource DeleteImageButton}"
+                    Style="{StaticResource RedButton}"
+                    ToolTip="حذف شهر انتخاب‌شده" />
+            </StackPanel>
+            <TextBox
+                Name="TextBoxSearchCity"
+                Grid.Row="1"
+                Grid.Column="1"
+                VerticalContentAlignment="Center"
+                TextChanged="TextBoxSearchCity_TextChanged"
+                ToolTip="جستجو در شهرها">
+                <TextBox.Background>
+                    <ImageBrush
+                        AlignmentX="Right"
+                        ImageSource="/Contents/Images/search-9-xxl.png"
+                        Stretch="Uniform" />
+                </TextBox.Background>
+            </TextBox>
+            <DataGrid
+                Name="DataGridCities"
+                Grid.Row="2"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                AutoGeneratingColumn="DataGrid_AutoGeneratingColumn"
+                SelectionChanged="DataGridCities_SelectionChanged" />
+        </Grid>
+        <Grid
+            Grid.Row="1"
+            Grid.Column="0"
+            Grid.ColumnSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <TextBlock
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Text="سازمان‌ها" />
+            <StackPanel
+                Grid.Row="1"
+                Grid.Column="0"
+                Orientation="Horizontal">
+                <Button
+                    Name="ButtonNewOrganization"
+                    Click="ButtonNewOrganization_Click"
+                    ContentTemplate="{StaticResource AddImageButton}"
+                    Style="{StaticResource BlueButton}"
+                    ToolTip="افزودن سازمان جدید" />
+                <Button
+                    Name="ButtonEditOrganization"
+                    Click="ButtonEditOrganization_Click"
+                    ContentTemplate="{StaticResource EditImageButton}"
+                    Style="{StaticResource YellowButton}"
+                    ToolTip="ویرایش سازمان انتخاب‌شده" />
+                <Button
+                    Name="ButtonDeleteOrganization"
+                    Click="ButtonDeleteOrganization_Click"
+                    ContentTemplate="{StaticResource DeleteImageButton}"
+                    Style="{StaticResource RedButton}"
+                    ToolTip="حذف سازمان انتخاب‌شده" />
+            </StackPanel>
+            <TextBox
+                Name="TextBoxSearchOrganization"
+                Grid.Row="1"
+                Grid.Column="1"
+                VerticalContentAlignment="Center"
+                TextChanged="TextBoxSearchOrganization_TextChanged"
+                ToolTip="جستجو در سازمان‌ها">
+                <TextBox.Background>
+                    <ImageBrush
+                        AlignmentX="Right"
+                        ImageSource="/Contents/Images/search-9-xxl.png"
+                        Stretch="Uniform" />
+                </TextBox.Background>
+            </TextBox>
+            <DataGrid
+                Name="DataGridOrganizations"
+                Grid.Row="2"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                AutoGeneratingColumn="DataGrid_AutoGeneratingColumn"
+                SelectionChanged="DataGridOrganizations_SelectionChanged" />
+        </Grid>
+    </Grid>
+</Window>

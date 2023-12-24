@@ -1,0 +1,80 @@
+﻿<Window
+    x:Class="ACDClinicManagement.App.Views.PeopleViews.PeopleWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="اشخاص"
+    Closed="Window_Closed"
+    KeyDown="Window_KeyDown"
+    Loaded="Window_Loaded"
+    Style="{StaticResource WindowStyle}">
+    <Grid Style="{StaticResource WindowBodyGridStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <StackPanel
+            Grid.Row="0"
+            Grid.Column="0"
+            Orientation="Horizontal">
+            <Button
+                Name="ButtonNewPerson"
+                Click="ButtonNewPerson_Click"
+                ContentTemplate="{StaticResource AddImageButton}"
+                Style="{StaticResource BlueButton}"
+                ToolTip="افزودن شخص جدید" />
+            <Button
+                Name="ButtonEditPerson"
+                Click="ButtonEditPerson_Click"
+                ContentTemplate="{StaticResource EditImageButton}"
+                Style="{StaticResource YellowButton}"
+                ToolTip="ویرایش شخص انتخاب‌شده" />
+            <Button
+                Name="ButtonDeletePerson"
+                Click="ButtonDeletePerson_Click"
+                ContentTemplate="{StaticResource DeleteImageButton}"
+                Style="{StaticResource RedButton}"
+                ToolTip="حذف شخص انتخاب‌شده" />
+            <Button
+                Name="ButtonSelectPerson"
+                Click="ButtonSelectPerson_Click"
+                ContentTemplate="{StaticResource CheckMarkImageButton}"
+                Style="{StaticResource GreenButton}"
+                ToolTip="تأیید شخص انتخاب‌شده" />
+        </StackPanel>
+        <TextBox
+            Name="TextBoxSearchPerson"
+            Grid.Row="0"
+            Grid.Column="1"
+            VerticalContentAlignment="Center"
+            KeyDown="TextBoxSearchPerson_KeyDown"
+            TextChanged="TextBoxSearchPerson_TextChanged"
+            ToolTip="جستجو در اشخاص">
+            <TextBox.Background>
+                <ImageBrush
+                    AlignmentX="Right"
+                    ImageSource="/Contents/Images/search-9-xxl.png"
+                    Stretch="Uniform" />
+            </TextBox.Background>
+        </TextBox>
+        <TextBlock
+            Grid.Row="2"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            HorizontalAlignment="Center"
+            Style="{StaticResource WarningStyleTextBlock}"
+            Text="برای جستجو در اشخاص، یکی از مشخصه‌ها مانند کدملی و یا نام را در کادر جستجو (بالا) وارد نموده و سپس کلید ENTER را بزنید" />
+        <DataGrid
+            Name="DataGridPeople"
+            Grid.Row="3"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            AutoGeneratingColumn="DataGrid_AutoGeneratingColumn"
+            MouseDoubleClick="DataGridPeople_MouseDoubleClick" />
+    </Grid>
+</Window>

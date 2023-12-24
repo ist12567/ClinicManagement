@@ -1,0 +1,36 @@
+﻿<Window
+    x:Class="ACDClinicManagement.App.Views.HelpViews.HelpWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="راهنمای استفاده"
+    KeyDown="Window_KeyDown"
+    Loaded="Window_Loaded"
+    Style="{StaticResource WindowStyle}">
+    <Grid Style="{StaticResource WindowBodyGridStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <TextBlock
+            Grid.Row="0"
+            Margin="0,20"
+            HorizontalAlignment="Center"
+            Foreground="Blue"
+            Text="تعاریف و اعمال اولیه برای استفاده از نرم‌افزار" />
+        <Button
+            Name="ButtonDoSomething"
+            Grid.Row="8"
+            Width="200"
+            HorizontalAlignment="Center"
+            Click="ButtonDoSomething_Click"
+            Content="Do Something"
+            Visibility="Collapsed" />
+    </Grid>
+</Window>

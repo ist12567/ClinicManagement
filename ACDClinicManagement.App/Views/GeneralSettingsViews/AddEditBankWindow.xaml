@@ -1,0 +1,60 @@
+﻿<Window
+    x:Class="ACDClinicManagement.App.Views.GeneralSettingsViews.AddEditBankWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title=""
+    KeyDown="Window_KeyDown"
+    Loaded="Window_Loaded"
+    Style="{StaticResource WindowStyle}">
+    <Grid Style="{StaticResource WindowBodyGridStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <TextBlock
+            Grid.Row="0"
+            Grid.Column="0"
+            Style="{StaticResource TitleStyleTextBlock}"
+            Text="عنوان بانک" />
+        <TextBox
+            Name="TextBoxBankTitle"
+            Grid.Row="0"
+            Grid.Column="1"
+            Style="{StaticResource RightToLeftStyleTextBox}" />
+        <StackPanel
+            Grid.Row="1"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Orientation="Vertical">
+            <Border
+                Width="110"
+                BorderBrush="#e0218a"
+                BorderThickness="2">
+                <Image Name="ImageLogo" Stretch="Fill" />
+            </Border>
+            <Button
+                Name="ButtonSelectLogo"
+                Width="110"
+                VerticalAlignment="Center"
+                Click="ButtonSelectLogo_Click"
+                ContentTemplate="{StaticResource RefreshImageButton}"
+                Style="{StaticResource PurpleButton}"
+                TabIndex="10"
+                ToolTip="انتخاب لوگوی بانک" />
+        </StackPanel>
+        <Button
+            Grid.Row="2"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Click="ButtonSave_Click"
+            ContentTemplate="{StaticResource SaveImageButton}"
+            IsDefault="True"
+            Style="{StaticResource GreenButton}"
+            ToolTip="ثبت" />
+    </Grid>
+</Window>

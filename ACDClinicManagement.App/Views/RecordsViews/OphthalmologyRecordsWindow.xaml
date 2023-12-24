@@ -1,0 +1,72 @@
+﻿<Window
+    x:Class="ACDClinicManagement.App.Views.RecordsViews.OphthalmologyRecordsWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="سوابق مراجعه"
+    Closed="Window_Closed"
+    KeyDown="Window_KeyDown"
+    Loaded="Window_Loaded"
+    Style="{StaticResource WindowStyle}">
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <TextBlock
+            Name="TextBlockPersonTitle"
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Style="{StaticResource WarningStyleTextBlock}" />
+        <StackPanel
+            Grid.Row="1"
+            Grid.Column="0"
+            Orientation="Horizontal">
+            <Button
+                Name="ButtonNewRecord"
+                Click="ButtonNewRecord_Click"
+                ContentTemplate="{StaticResource AddImageButton}"
+                Style="{StaticResource BlueButton}"
+                ToolTip="افزودن سابقه‌ی مراجعه‌ی جدید" />
+            <Button
+                Name="ButtonEditRecord"
+                Click="ButtonEditRecord_Click"
+                ContentTemplate="{StaticResource EditImageButton}"
+                Style="{StaticResource YellowButton}"
+                ToolTip="ویرایش سابقه‌ی مراجعه‌ی انتخاب‌شده" />
+            <Button
+                Name="ButtonDeleteRecord"
+                Click="ButtonDeleteRecord_Click"
+                ContentTemplate="{StaticResource DeleteImageButton}"
+                Style="{StaticResource RedButton}"
+                ToolTip="حذف سابقه‌ی مراجعه‌ی انتخاب‌شده" />
+        </StackPanel>
+        <TextBox
+            Name="TextBoxSearchRecord"
+            Grid.Row="1"
+            Grid.Column="1"
+            VerticalContentAlignment="Center"
+            TextChanged="TextBoxSearchRecord_TextChanged"
+            ToolTip="جستجو در سابقه‌ی مراجعات">
+            <TextBox.Background>
+                <ImageBrush
+                    AlignmentX="Right"
+                    ImageSource="/Contents/Images/search-9-xxl.png"
+                    Stretch="Uniform" />
+            </TextBox.Background>
+        </TextBox>
+        <DataGrid
+            Name="DataGridRecords"
+            MouseDoubleClick="DataGridRecords_MouseDoubleClick"
+            Grid.Row="2"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            AutoGeneratingColumn="DataGrid_AutoGeneratingColumn"
+            SelectionChanged="DataGridRecords_SelectionChanged" />
+    </Grid>
+</Window>

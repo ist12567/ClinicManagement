@@ -1,0 +1,656 @@
+﻿<Window
+    x:Class="ACDClinicManagement.App.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="نرم‌افزار مدیریت کلینیک‌های چشم‌پزشکی "
+    Width="{Binding Source={x:Static SystemParameters.FullPrimaryScreenWidth}}"
+    Height="{Binding Source={x:Static SystemParameters.FullPrimaryScreenHeight}}"
+    Background="AliceBlue"
+    Closed="Window_Closed"
+    FontFamily="Calibri, Segoe UI, Tahoma"
+    FontSize="14"
+    FontWeight="Bold"
+    Icon="Contents/Images/Stethoscope.ico"
+    Loaded="Window_Loaded"
+    WindowStartupLocation="CenterScreen">
+    <Grid Style="{StaticResource WindowBodyGridStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <TabControl
+            Grid.Row="1"
+            HorizontalAlignment="Center"
+            BorderThickness="0"
+            Grid.IsSharedSizeScope="True"
+            Style="{StaticResource TabControlStyle}"
+            TabStripPlacement="Bottom">
+            <TabItem
+                Height="47"
+                VerticalAlignment="Bottom"
+                Style="{StaticResource TabItemStyle}">
+                <TabItem.Header>
+                    <Grid Style="{StaticResource TabItemGridStyle}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Image
+                            Grid.Column="0"
+                            Source="Contents/Images/home.png"
+                            Style="{StaticResource TabItemImageStyle}" />
+                        <TextBlock
+                            Grid.Column="1"
+                            Style="{StaticResource TabItemTitleStyleTextBlock1}"
+                            Text="صفحه‌ی اصلی" />
+                    </Grid>
+                </TabItem.Header>
+                <ScrollViewer
+                    Grid.Row="1"
+                    MaxWidth="1110"
+                    Style="{StaticResource ScrollViewerStyle}">
+                    <WrapPanel Style="{StaticResource WrapPanelStyle}">
+                        <Button Style="{StaticResource TileStyleButton1}">
+                            <Grid Style="{StaticResource GridStyle1}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    Style="{StaticResource HeaderStyleTextBlock}"
+                                    Text="کاربر" />
+                                <Image
+                                    Name="ImageUser"
+                                    Grid.Row="0"
+                                    Grid.RowSpan="4"
+                                    Grid.Column="1"
+                                    MaxWidth="100"
+                                    MaxHeight="100"
+                                    Visibility="Collapsed" />
+                                <TextBlock
+                                    Name="TextBlockUserType"
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    FontWeight="Bold"
+                                    Style="{StaticResource DescriptionStyleTextBlock}" />
+                                <TextBlock
+                                    Name="TextBlockUser"
+                                    Grid.Row="2"
+                                    Grid.Column="0"
+                                    FontWeight="Bold"
+                                    Style="{StaticResource DescriptionStyleTextBlock}" />
+                            </Grid>
+                        </Button>
+                        <Button Style="{StaticResource TileStyleButton1}">
+                            <Grid Style="{StaticResource GridStyle1}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <TextBlock
+                                    Grid.Row="0"
+                                    Style="{StaticResource HeaderStyleTextBlock}"
+                                    Text="تاریخ و زمان جاری سیستم" />
+                                <TextBlock
+                                    Name="TextBlockDate"
+                                    Grid.Row="1"
+                                    Style="{StaticResource DescriptionStyleTextBlock}" />
+                                <TextBlock
+                                    Name="TextBlockTime"
+                                    Grid.Row="2"
+                                    Style="{StaticResource DescriptionStyleTextBlock}" />
+                                <TextBlock
+                                    Grid.Row="3"
+                                    Style="{StaticResource HeaderStyleTextBlock}"
+                                    Text="تاریخ سرور" />
+                                <TextBlock
+                                    Name="TextBlockServerDateTime"
+                                    Grid.Row="4"
+                                    Style="{StaticResource DescriptionStyleTextBlock}" />
+                                <Image
+                                    Grid.Row="5"
+                                    Source="Contents/Images/month-view-xxl.png"
+                                    Style="{StaticResource GridImageStyle}" />
+                            </Grid>
+                        </Button>
+                        <Button Style="{StaticResource TileStyleButton1}">
+                            <Grid Style="{StaticResource GridStyle1}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="2*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    Style="{StaticResource HeaderStyleTextBlock}"
+                                    Text="وضعیت" />
+                                <TextBlock
+                                    Name="TextBlockServerState"
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    Style="{StaticResource HeaderStyleTextBlock}" />
+                                <ScrollViewer
+                                    Grid.Row="1"
+                                    Grid.ColumnSpan="2"
+                                    HorizontalScrollBarVisibility="Auto"
+                                    VerticalScrollBarVisibility="Auto">
+                                    <TextBlock
+                                        Name="TextBlockTransactionsState"
+                                        Foreground="AliceBlue"
+                                        Style="{StaticResource DescriptionStyleTextBlock}" />
+                                </ScrollViewer>
+                            </Grid>
+                        </Button>
+                        <Button
+                            MouseEnter="ButtonToDoList_MouseEnter"
+                            MouseLeave="ButtonToDoList_MouseLeave"
+                            Style="{StaticResource TileStyleButton1}">
+                            <Grid Style="{StaticResource GridStyle1}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    Style="{StaticResource HeaderStyleTextBlock}"
+                                    Text="یادداشت‌های من" />
+                                <StackPanel
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    FlowDirection="LeftToRight"
+                                    Orientation="Horizontal">
+                                    <Image
+                                        Name="ImageEditToDoList"
+                                        Width="25"
+                                        Height="25"
+                                        Margin="2"
+                                        HorizontalAlignment="Right"
+                                        MouseLeftButtonDown="ImageEditToDoList_MouseLeftButtonDown"
+                                        Source="Contents/Images/edit-white-xxl.png"
+                                        ToolTip="ویرایش"
+                                        Visibility="Collapsed" />
+                                    <Image
+                                        Name="ImageSaveToDoList"
+                                        Width="25"
+                                        Height="25"
+                                        Margin="2"
+                                        HorizontalAlignment="Right"
+                                        MouseLeftButtonDown="ImageSaveToDoList_MouseLeftButtonDown"
+                                        Source="Contents/Images/save-white-xxl.png"
+                                        ToolTip="ذخیره"
+                                        Visibility="Collapsed" />
+                                </StackPanel>
+                                <TextBox
+                                    Name="TextBoxToDoList"
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    Grid.ColumnSpan="2"
+                                    AcceptsReturn="True"
+                                    Background="#3474ec"
+                                    BorderBrush="#3474ec"
+                                    Foreground="Black"
+                                    IsEnabled="False"
+                                    MaxLines="9"
+                                    MinLines="2"
+                                    TextWrapping="Wrap"
+                                    VerticalScrollBarVisibility="Auto" />
+                            </Grid>
+                        </Button>
+                        <Button Click="ButtonChangePassword_Click" Style="{StaticResource TileStyleButton1}">
+                            <Grid Style="{StaticResource GridStyle1}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <TextBlock
+                                    Grid.Row="0"
+                                    Style="{StaticResource HeaderStyleTextBlock}"
+                                    Text="تغییر کلمه‌ی عبور" />
+                                <TextBlock
+                                    Grid.Row="1"
+                                    Style="{StaticResource DescriptionStyleTextBlock}"
+                                    Text="تغییر کلمه‌ی عبور جهت به سیستم" />
+                                <Image
+                                    Grid.Row="2"
+                                    Source="Contents/Images/key-xxl.png"
+                                    Style="{StaticResource GridImageStyle}" />
+                            </Grid>
+                        </Button>
+                        <Button Click="ButtonResetPassword_Click" Style="{StaticResource TileStyleButton1}">
+                            <Grid Style="{StaticResource GridStyle1}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <TextBlock
+                                    Grid.Row="0"
+                                    Style="{StaticResource HeaderStyleTextBlock}"
+                                    Text="بازنشانی کلمه‌ی عبور" />
+                                <TextBlock
+                                    Grid.Row="1"
+                                    Style="{StaticResource DescriptionStyleTextBlock}"
+                                    Text="بازنشانی کلمه‌ی عبور فراموش شده" />
+                                <Image
+                                    Grid.Row="2"
+                                    Source="Contents/Images/key-4-xxl.png"
+                                    Style="{StaticResource GridImageStyle}" />
+                            </Grid>
+                        </Button>
+                        <Button Style="{StaticResource TileStyleButton1}">
+                            <Grid
+                                Width="830"
+                                Height="190"
+                                Margin="2"
+                                Style="{StaticResource GridStyle1}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <TextBlock
+                                    Name="TextBlockAnnouncementTitle"
+                                    Grid.Row="0"
+                                    Foreground="Orange"
+                                    Style="{StaticResource HeaderStyleTextBlock}"
+                                    TextAlignment="Center" />
+                                <ScrollViewer
+                                    Grid.Row="1"
+                                    HorizontalScrollBarVisibility="Disabled"
+                                    VerticalScrollBarVisibility="Auto">
+                                    <TextBlock
+                                        Name="TextBlockAnnouncementFullContent"
+                                        Margin="2,2,0,2"
+                                        FontFamily="Calibri, Segoe UI, Tahoma"
+                                        FontSize="20"
+                                        FontWeight="Bold"
+                                        Foreground="White"
+                                        TextWrapping="Wrap" />
+                                </ScrollViewer>
+                            </Grid>
+                        </Button>
+                    </WrapPanel>
+                </ScrollViewer>
+            </TabItem>
+            <TabItem Style="{StaticResource TabItemStyle}">
+                <TabItem.Header>
+                    <Grid Style="{StaticResource TabItemGridStyle}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Image
+                            Grid.Column="0"
+                            Source="Contents/Images/settings-5-xxl.png"
+                            Style="{StaticResource TabItemImageStyle}" />
+                        <TextBlock
+                            Grid.Column="1"
+                            Margin="2,11"
+                            HorizontalAlignment="Stretch"
+                            Style="{StaticResource TabItemTitleStyleTextBlock2}"
+                            Text="مدیریت سیستم" />
+                    </Grid>
+                </TabItem.Header>
+                <ScrollViewer
+                    Grid.Row="1"
+                    MaxWidth="960"
+                    Style="{StaticResource ScrollViewerStyle}">
+                    <WrapPanel Style="{StaticResource WrapPanelStyle}">
+                        <Button Click="ButtonGeneralSettings_Click" Style="{StaticResource TileStyleButton2}">
+                            <Grid Style="{StaticResource GridStyle2}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <TextBlock
+                                    Grid.Row="0"
+                                    Style="{StaticResource HeaderStyleTextBlock}"
+                                    Text="تنظیمات عمومی" />
+                                <TextBlock
+                                    Grid.Row="1"
+                                    Style="{StaticResource DescriptionStyleTextBlock}"
+                                    Text="افزودن و ویراش اطلاعات مربوط به بانک‌ها، ارزش افزوده‌ها و نسخه‌های نرم‌افزار" />
+                                <Image
+                                    Grid.Row="2"
+                                    Source="Contents/Images/data-configuration-xxl.png"
+                                    Style="{StaticResource GridImageStyle}" />
+                            </Grid>
+                        </Button>
+                        <Button Click="ButtonLocations_Click" Style="{StaticResource TileStyleButton2}">
+                            <Grid Style="{StaticResource GridStyle2}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <TextBlock
+                                    Grid.Row="0"
+                                    Style="{StaticResource HeaderStyleTextBlock}"
+                                    Text="موقعیت‌ها" />
+                                <TextBlock
+                                    Grid.Row="1"
+                                    Style="{StaticResource DescriptionStyleTextBlock}"
+                                    Text="افزودن و ویراش استان‌ها، شهرها و سازمان‌ها" />
+                                <Image
+                                    Grid.Row="2"
+                                    Source="Contents/Images/data-configuration-xxl.png"
+                                    Style="{StaticResource GridImageStyle}" />
+                            </Grid>
+                        </Button>
+                        <Button Click="ButtonOrganizationsSubsets_Click" Style="{StaticResource TileStyleButton2}">
+                            <Grid Style="{StaticResource GridStyle2}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <TextBlock
+                                    Grid.Row="0"
+                                    Style="{StaticResource HeaderStyleTextBlock}"
+                                    Text="سازمان و مجموعه‌ها" />
+                                <TextBlock
+                                    Grid.Row="1"
+                                    Style="{StaticResource DescriptionStyleTextBlock}"
+                                    Text="افزودن و ویرایش جزئیات سازمان و زیرمجموعه‌ها" />
+                                <Image
+                                    Grid.Row="2"
+                                    Source="Contents/Images/data-configuration-xxl.png"
+                                    Style="{StaticResource GridImageStyle}" />
+                            </Grid>
+                        </Button>
+                        <Button Click="ButtonBackupRestore_Click" Style="{StaticResource TileStyleButton2}">
+                            <Grid Style="{StaticResource GridStyle2}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <TextBlock
+                                    Grid.Row="0"
+                                    Style="{StaticResource HeaderStyleTextBlock}"
+                                    Text="پشتیبان‌گیری و بازیابی" />
+                                <TextBlock
+                                    Grid.Row="1"
+                                    Style="{StaticResource DescriptionStyleTextBlock}"
+                                    Text="عملیات مربوط به پشتیبان‌گیری و بازیابی پایگاه داده" />
+                                <Image
+                                    Grid.Row="2"
+                                    Source="Contents/Images/data-configuration-xxl.png"
+                                    Style="{StaticResource GridImageStyle}" />
+                            </Grid>
+                        </Button>
+                        <Button Click="ButtonUsers_Click" Style="{StaticResource TileStyleButton2}">
+                            <Grid Style="{StaticResource GridStyle2}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <TextBlock
+                                    Grid.Row="0"
+                                    Style="{StaticResource HeaderStyleTextBlock}"
+                                    Text="کاربران" />
+                                <TextBlock
+                                    Grid.Row="1"
+                                    Style="{StaticResource DescriptionStyleTextBlock}"
+                                    Text="تعریف و ویرایش کاربران نرم‌افزار" />
+                                <Image
+                                    Grid.Row="2"
+                                    Source="Contents/Images/conference-xxl.png"
+                                    Style="{StaticResource GridImageStyle}" />
+                            </Grid>
+                        </Button>
+                    </WrapPanel>
+                </ScrollViewer>
+            </TabItem>
+            <TabItem Style="{StaticResource TabItemStyle}">
+                <TabItem.Header>
+                    <Grid Style="{StaticResource TabItemGridStyle}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Image
+                            Grid.Column="0"
+                            Height="35"
+                            Margin="2,2,2,0"
+                            VerticalAlignment="Top"
+                            Source="Contents/Images/doctor-2-xxl.png"
+                            Style="{StaticResource TabItemImageStyle}" />
+                        <TextBlock
+                            Grid.Column="1"
+                            Style="{StaticResource TabItemTitleStyleTextBlock3}"
+                            Text="اشخاص و مراجعات" />
+                    </Grid>
+                </TabItem.Header>
+                <ScrollViewer
+                    Grid.Row="1"
+                    MaxWidth="960"
+                    Style="{StaticResource ScrollViewerStyle}">
+                    <WrapPanel Style="{StaticResource WrapPanelStyle}">
+                        <Button Click="ButtonPeople_Click" Style="{StaticResource TileStyleButton3}">
+                            <Grid Style="{StaticResource GridStyle3}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <TextBlock
+                                    Grid.Row="0"
+                                    Style="{StaticResource HeaderStyleTextBlock}"
+                                    Text="اشخاص" />
+                                <TextBlock
+                                    Grid.Row="1"
+                                    Style="{StaticResource DescriptionStyleTextBlock}"
+                                    Text="ثبت، ویرایش و حذف اشخاص" />
+                                <Image
+                                    Grid.Row="2"
+                                    Source="Contents/Images/conference-call-256.png"
+                                    Style="{StaticResource GridImageStyle}" />
+                            </Grid>
+                        </Button>
+                        <Button Click="ButtonReferences_Click" Style="{StaticResource TileStyleButton3}">
+                            <Grid Style="{StaticResource GridStyle3}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <TextBlock
+                                    Grid.Row="0"
+                                    Style="{StaticResource HeaderStyleTextBlock}"
+                                    Text="مراجعات روزانه، سوابق و ویزیت" />
+                                <TextBlock
+                                    Grid.Row="1"
+                                    Style="{StaticResource DescriptionStyleTextBlock}"
+                                    Text="انجام عملیات مربوط به مراجعات روزانه و ویزیت به همراه دسترسی به سوابق مراجعات" />
+                                <Image
+                                    Grid.Row="2"
+                                    Source="Contents/Images/layers-256.png"
+                                    Style="{StaticResource GridImageStyle}" />
+                            </Grid>
+                        </Button>
+                    </WrapPanel>
+                </ScrollViewer>
+            </TabItem>
+            <TabItem Style="{StaticResource TabItemStyle}">
+                <TabItem.Header>
+                    <Grid Style="{StaticResource TabItemGridStyle}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Image
+                            Grid.Column="0"
+                            Source="Contents/Images/megaphone-2-xxl.png"
+                            Style="{StaticResource TabItemImageStyle}" />
+                        <TextBlock
+                            Grid.Column="1"
+                            Style="{StaticResource TabItemTitleStyleTextBlock4}"
+                            Text="اطلاع‌رسانی" />
+                    </Grid>
+                </TabItem.Header>
+                <ScrollViewer
+                    Grid.Row="1"
+                    MaxWidth="960"
+                    Style="{StaticResource ScrollViewerStyle}">
+                    <WrapPanel Style="{StaticResource WrapPanelStyle}" />
+                </ScrollViewer>
+            </TabItem>
+            <TabItem Style="{StaticResource TabItemStyle}">
+                <TabItem.Header>
+                    <Grid Style="{StaticResource TabItemGridStyle}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Image
+                            Grid.Column="0"
+                            Source="Contents/Images/report-xxl.png"
+                            Style="{StaticResource TabItemImageStyle}" />
+                        <TextBlock
+                            Grid.Column="1"
+                            Style="{StaticResource TabItemTitleStyleTextBlock5}"
+                            Text="گزارشات" />
+                    </Grid>
+                </TabItem.Header>
+                <ScrollViewer
+                    Grid.Row="1"
+                    MaxWidth="960"
+                    Style="{StaticResource ScrollViewerStyle}">
+                    <WrapPanel Style="{StaticResource WrapPanelStyle}">
+                        <Button Click="ButtonPaymentsReport_Click" Style="{StaticResource TileStyleButton5}">
+                            <Grid Style="{StaticResource GridStyle5}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <TextBlock
+                                    Grid.Row="0"
+                                    Style="{StaticResource HeaderStyleTextBlock}"
+                                    Text="گزارش مراجعات" />
+                                <TextBlock
+                                    Grid.Row="1"
+                                    Style="{StaticResource DescriptionStyleTextBlock}"
+                                    Text="گزارشات مراجعات در بازه‌های زمانی مختلف" />
+                                <Image
+                                    Grid.Row="2"
+                                    Source="Contents/Images/conference-call-256.png"
+                                    Style="{StaticResource GridImageStyle}" />
+                            </Grid>
+                        </Button>
+                    </WrapPanel>
+                </ScrollViewer>
+            </TabItem>
+            <TabItem Style="{StaticResource TabItemStyle}">
+                <TabItem.Header>
+                    <Grid Style="{StaticResource TabItemGridStyle}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Image
+                            Grid.Column="0"
+                            Source="Contents/Images/AsiaCando.gif"
+                            Style="{StaticResource TabItemImageStyle}" />
+                        <TextBlock
+                            Grid.Column="1"
+                            Margin="2,0,0,11"
+                            VerticalAlignment="Bottom"
+                            Style="{StaticResource TabItemTitleStyleTextBlock6}"
+                            Text="راهنما" />
+                    </Grid>
+                </TabItem.Header>
+                <ScrollViewer
+                    Grid.Row="1"
+                    MaxWidth="960"
+                    Style="{StaticResource ScrollViewerStyle}">
+                    <WrapPanel Style="{StaticResource WrapPanelStyle}">
+                        <Button Click="ButtonAbout_Click" Style="{StaticResource TileStyleButton6}">
+                            <Grid Style="{StaticResource GridStyle6}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <TextBlock
+                                    Grid.Row="0"
+                                    Style="{StaticResource HeaderStyleTextBlock}"
+                                    Text="درباره" />
+                                <TextBlock
+                                    Grid.Row="1"
+                                    Style="{StaticResource DescriptionStyleTextBlock}"
+                                    Text="درباره‌ی نرم‌افزار و به‌روزرسانی" />
+                                <Image
+                                    Grid.Row="2"
+                                    Source="Contents/Images/AsiaCando.gif"
+                                    Style="{StaticResource GridImageStyle}" />
+                            </Grid>
+                        </Button>
+                        <Button Click="ButtonHelp_Click" Style="{StaticResource TileStyleButton6}">
+                            <Grid Style="{StaticResource GridStyle6}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <TextBlock
+                                    Grid.Row="0"
+                                    Style="{StaticResource HeaderStyleTextBlock}"
+                                    Text="راهنما" />
+                                <TextBlock
+                                    Grid.Row="1"
+                                    Style="{StaticResource DescriptionStyleTextBlock}"
+                                    Text="راهنمای استفاده از نرم‌افزار" />
+                                <Image
+                                    Grid.Row="2"
+                                    Source="Contents/Images/help-xxl.png"
+                                    Style="{StaticResource GridImageStyle}" />
+                            </Grid>
+                        </Button>
+                    </WrapPanel>
+                </ScrollViewer>
+            </TabItem>
+        </TabControl>
+        <StatusBar
+            Name="StatusBarMessage"
+            Grid.Row="2"
+            HorizontalAlignment="Center"
+            Background="AliceBlue"
+            Style="{StaticResource StatusBarStyle}">
+            <TextBox
+                Name="TextBoxMessage"
+                Background="AliceBlue"
+                BorderThickness="0"
+                FontFamily="Calibri, Segoe UI, Tahoma"
+                FontSize="14"
+                FontWeight="Bold"
+                IsReadOnly="True"
+                TextChanged="TextBoxMessage_TextChanged" />
+        </StatusBar>
+    </Grid>
+</Window>

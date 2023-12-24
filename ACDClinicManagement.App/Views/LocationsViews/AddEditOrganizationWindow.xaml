@@ -1,0 +1,171 @@
+﻿<Window
+    x:Class="ACDClinicManagement.App.Views.LocationsViews.AddEditOrganizationWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title=""
+    KeyDown="Window_KeyDown"
+    Loaded="Window_Loaded"
+    Style="{StaticResource WindowStyle}">
+    <Grid Style="{StaticResource WindowBodyGridStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <TextBlock
+            Name="TextBlockCityTitle"
+            Grid.Row="0"
+            Grid.ColumnSpan="4"
+            Style="{StaticResource WarningStyleTextBlock}" />
+        <TextBlock
+            Grid.Row="1"
+            Grid.Column="0"
+            Style="{StaticResource TitleStyleTextBlock}"
+            Text="عنوان" />
+        <TextBox
+            Name="TextBoxTitle"
+            Grid.Row="1"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Style="{StaticResource RightToLeftStyleTextBox}" />
+        <TextBlock
+            Grid.Row="2"
+            Grid.Column="0"
+            Style="{StaticResource TitleStyleTextBlock}"
+            Text="کد" />
+        <TextBox
+            Name="TextBoxCode"
+            Grid.Row="2"
+            Grid.Column="1"
+            Style="{StaticResource LeftToRightStyleTextBox}" />
+        <TextBlock
+            Grid.Row="2"
+            Grid.Column="2"
+            Style="{StaticResource TitleStyleTextBlock}"
+            Text="نام ریاست" />
+        <TextBox
+            Name="TextBoxBossFirstName"
+            Grid.Row="2"
+            Grid.Column="3"
+            Style="{StaticResource RightToLeftStyleTextBox}" />
+        <TextBlock
+            Grid.Row="3"
+            Grid.Column="0"
+            Style="{StaticResource TitleStyleTextBlock}"
+            Text="نام خانوادگی ریاست" />
+        <TextBox
+            Name="TextBoxBossLastName"
+            Grid.Row="3"
+            Grid.Column="1"
+            Style="{StaticResource RightToLeftStyleTextBox}" />
+        <TextBlock
+            Grid.Row="3"
+            Grid.Column="2"
+            Style="{StaticResource TitleStyleTextBlock}"
+            Text="شماره‌ی تلفن همراه ریاست" />
+        <TextBox
+            Name="TextBoxBossCellPhoneNumber"
+            Grid.Row="3"
+            Grid.Column="3"
+            Style="{StaticResource LeftToRightStyleTextBox}" />
+        <TextBlock
+            Grid.Row="4"
+            Grid.Column="0"
+            Style="{StaticResource TitleStyleTextBlock}"
+            Text="شماره‌ی تلفن" />
+        <TextBox
+            Name="TextBoxTelNumber"
+            Grid.Row="4"
+            Grid.Column="1"
+            Style="{StaticResource LeftToRightStyleTextBox}" />
+        <TextBlock
+            Grid.Row="4"
+            Grid.Column="2"
+            Style="{StaticResource TitleStyleTextBlock}"
+            Text="شماره‌ی فکس" />
+        <TextBox
+            Name="TextBoxFaxNumber"
+            Grid.Row="4"
+            Grid.Column="3"
+            Style="{StaticResource LeftToRightStyleTextBox}" />
+        <TextBlock
+            Grid.Row="5"
+            Grid.Column="0"
+            Style="{StaticResource TitleStyleTextBlock}"
+            Text="آدرس ایمیل" />
+        <TextBox
+            Name="TextBoxEmailAddress"
+            Grid.Row="5"
+            Grid.Column="1"
+            Style="{StaticResource LeftToRightStyleTextBox}" />
+        <TextBlock
+            Grid.Row="5"
+            Grid.Column="2"
+            Style="{StaticResource TitleStyleTextBlock}"
+            Text="کد پستی" />
+        <TextBox
+            Name="TextBoxPostalCode"
+            Grid.Row="5"
+            Grid.Column="3"
+            Style="{StaticResource LeftToRightStyleTextBox}" />
+        <TextBlock
+            Grid.Row="6"
+            Grid.Column="0"
+            Style="{StaticResource TitleStyleTextBlock}"
+            Text="آدرس" />
+        <TextBox
+            Name="TextBoxAddress"
+            Grid.Row="6"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            MinLines="2"
+            Style="{StaticResource RightToLeftStyleTextBox}" />
+        <StackPanel
+            Grid.Row="7"
+            Grid.Column="0"
+            Grid.ColumnSpan="4"
+            Orientation="Vertical">
+            <Border
+                Width="110"
+                BorderBrush="#e0218a"
+                BorderThickness="2">
+                <Image Name="ImageLogo" Stretch="Fill" />
+            </Border>
+            <Button
+                Width="110"
+                VerticalAlignment="Center"
+                Click="ButtonSelectLogo_Click"
+                ContentTemplate="{StaticResource RefreshImageButton}"
+                Style="{StaticResource PurpleButton}"
+                ToolTip="انتخاب لوگو" />
+        </StackPanel>
+        <CheckBox
+            Name="CheckBoxActiveMode"
+            Grid.Row="8"
+            Grid.Column="0"
+            Grid.ColumnSpan="4"
+            Content="وضعیت" />
+        <Button
+            Grid.Row="9"
+            Grid.Column="0"
+            Grid.ColumnSpan="4"
+            Click="ButtonSave_Click"
+            ContentTemplate="{StaticResource SaveImageButton}"
+            IsDefault="True"
+            Style="{StaticResource GreenButton}"
+            ToolTip="ثبت" />
+    </Grid>
+</Window>

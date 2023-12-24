@@ -1,0 +1,207 @@
+﻿<Window
+    x:Class="ACDClinicManagement.App.Views.PeopleViews.AddEditPersonWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title=""
+    KeyDown="Window_KeyDown"
+    Loaded="Window_Loaded"
+    Style="{StaticResource WindowStyle}">
+    <Grid Style="{StaticResource WindowBodyGridStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <GroupBox Grid.Row="0" Header="مشخصات هویتی">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Style="{StaticResource TitleStyleTextBlock}"
+                    Text="شماره‌ی پرونده" />
+                <TextBox
+                    Name="TextBoxCode"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    FontSize="24"
+                    Foreground="Green"
+                    IsEnabled="False"
+                    Style="{StaticResource LeftToRightStyleTextBox}" />
+                <TextBlock
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    Style="{StaticResource TitleStyleTextBlock}"
+                    Text="جنسیت" />
+                <ComboBox
+                    Name="ComboBoxGender"
+                    Grid.Row="0"
+                    Grid.Column="3" />
+                <TextBlock
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Style="{StaticResource TitleStyleTextBlock}"
+                    Text="نام" />
+                <TextBox
+                    Name="TextBoxFirstName"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Style="{StaticResource RightToLeftStyleTextBox}" />
+                <TextBlock
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    Style="{StaticResource TitleStyleTextBlock}"
+                    Text="نام خانوادگی" />
+                <TextBox
+                    Name="TextBoxLastName"
+                    Grid.Row="1"
+                    Grid.Column="3"
+                    Style="{StaticResource RightToLeftStyleTextBox}" />
+                <TextBlock
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Style="{StaticResource TitleStyleTextBlock}"
+                    Text="کد ملی" />
+                <TextBox
+                    Name="TextBoxNationalCode"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Style="{StaticResource LeftToRightStyleTextBox}" />
+                <TextBlock
+                    Grid.Row="2"
+                    Grid.Column="2"
+                    Style="{StaticResource TitleStyleTextBlock}"
+                    Text="تاریخ تولد" />
+                <TextBlock
+                    Name="TextBlockBirthDate"
+                    Grid.Row="2"
+                    Grid.Column="3"
+                    HorizontalAlignment="Center"
+                    FontSize="20"
+                    FontWeight="Bold"
+                    Foreground="#255eaf"
+                    MouseLeftButtonDown="TextBlockBirthDate_MouseLeftButtonDown" />
+                <TextBlock
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Style="{StaticResource TitleStyleTextBlock}"
+                    Text="گروه خونی" />
+                <ComboBox
+                    Name="ComboBoxBloodTypes"
+                    Grid.Row="3"
+                    Grid.Column="1" />
+                <TextBlock
+                    Grid.Row="3"
+                    Grid.Column="2"
+                    Style="{StaticResource TitleStyleTextBlock}"
+                    Text="وضعیت تأهل" />
+                <ComboBox
+                    Name="ComboBoxMaritalStatus"
+                    Grid.Row="3"
+                    Grid.Column="3" />
+            </Grid>
+        </GroupBox>
+        <GroupBox Grid.Row="1" Header="سایر مشخصات">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Style="{StaticResource TitleStyleTextBlock}"
+                    Text="شماره‌ی تلفن همراه" />
+                <TextBox
+                    Name="TextBoxCellPhoneNumber"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Style="{StaticResource LeftToRightStyleTextBox}" />
+                <TextBlock
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    Style="{StaticResource TitleStyleTextBlock}"
+                    Text="کد پستی" />
+                <TextBox
+                    Name="TextBoxPostalCode"
+                    Grid.Row="0"
+                    Grid.Column="3"
+                    Style="{StaticResource LeftToRightStyleTextBox}" />
+                <TextBlock
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Style="{StaticResource TitleStyleTextBlock}"
+                    Text="استان" />
+                <ComboBox
+                    Name="ComboBoxProvinces"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    SelectionChanged="ComboBoxProvinces_SelectionChanged" />
+                <TextBlock
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    Style="{StaticResource TitleStyleTextBlock}"
+                    Text="شهر" />
+                <ComboBox
+                    Name="ComboBoxCities"
+                    Grid.Row="1"
+                    Grid.Column="3" />
+                <TextBlock
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Style="{StaticResource TitleStyleTextBlock}"
+                    Text="آدرس" />
+                <TextBox
+                    Name="TextBoxAddress"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Grid.ColumnSpan="3"
+                    MaxLines="4"
+                    MinLines="2"
+                    Style="{StaticResource RightToLeftStyleTextBox}" />
+                <TextBlock
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Style="{StaticResource TitleStyleTextBlock}"
+                    Text="توضیحات" />
+                <TextBox
+                    Name="TextBoxComments"
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    Grid.ColumnSpan="3"
+                    MaxLines="4"
+                    MinLines="2"
+                    Style="{StaticResource RightToLeftStyleTextBox}" />
+            </Grid>
+        </GroupBox>
+        <Button
+            Name="ButtonSave"
+            Grid.Row="2"
+            Grid.Column="0"
+            Grid.ColumnSpan="4"
+            Click="ButtonSave_Click"
+            ContentTemplate="{StaticResource SaveImageButton}"
+            IsDefault="True"
+            Style="{StaticResource GreenButton}"
+            ToolTip="ثبت" />
+    </Grid>
+</Window>

@@ -1,0 +1,231 @@
+﻿<Window
+    x:Class="ACDClinicManagement.App.Views.OrganizationsSubsetsViews.OrganizationsSubsetsWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="اطلاعات پایه‌ای سازمان‌ها"
+    KeyDown="Window_KeyDown"
+    Loaded="Window_Loaded"
+    Style="{StaticResource WindowStyle}">
+    <Grid Style="{StaticResource WindowBodyGridStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="استان‌ها" />
+            <TextBox
+                Name="TextBoxSearchProvince"
+                Grid.Row="1"
+                Height="40"
+                Margin="1"
+                VerticalContentAlignment="Center"
+                TextChanged="TextBoxSearchProvince_TextChanged"
+                ToolTip="جستجو در استان‌ها">
+                <TextBox.Background>
+                    <ImageBrush
+                        AlignmentX="Right"
+                        ImageSource="/Contents/Images/search-9-xxl.png"
+                        Stretch="Uniform" />
+                </TextBox.Background>
+            </TextBox>
+            <DataGrid
+                Name="DataGridProvinces"
+                Grid.Row="2"
+                AutoGeneratingColumn="DataGrid_AutoGeneratingColumn"
+                SelectionChanged="DataGridProvinces_SelectionChanged" />
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="شهرها" />
+            <TextBox
+                Name="TextBoxSearchCity"
+                Grid.Row="1"
+                Height="40"
+                Margin="1"
+                VerticalContentAlignment="Center"
+                TextChanged="TextBoxSearchCity_TextChanged"
+                ToolTip="جستجو در شهرها">
+                <TextBox.Background>
+                    <ImageBrush
+                        AlignmentX="Right"
+                        ImageSource="/Contents/Images/search-9-xxl.png"
+                        Stretch="Uniform" />
+                </TextBox.Background>
+            </TextBox>
+            <DataGrid
+                Name="DataGridCities"
+                Grid.Row="2"
+                AutoGeneratingColumn="DataGrid_AutoGeneratingColumn"
+                SelectionChanged="DataGridCities_SelectionChanged" />
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="سازمان‌ها" />
+            <TextBox
+                Name="TextBoxSearchOrganization"
+                Grid.Row="1"
+                Height="40"
+                Margin="1"
+                VerticalContentAlignment="Center"
+                TextChanged="TextBoxSearchOrganization_TextChanged"
+                ToolTip="جستجو در سازمان‌ها">
+                <TextBox.Background>
+                    <ImageBrush
+                        AlignmentX="Right"
+                        ImageSource="/Contents/Images/search-9-xxl.png"
+                        Stretch="Uniform" />
+                </TextBox.Background>
+            </TextBox>
+            <DataGrid
+                Name="DataGridOrganizations"
+                Grid.Row="2"
+                AutoGeneratingColumn="DataGrid_AutoGeneratingColumn"
+                SelectionChanged="DataGridOrganizations_SelectionChanged" />
+        </Grid>
+        <Grid
+            Grid.Row="1"
+            Grid.Column="0"
+            Grid.ColumnSpan="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <TextBlock
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Text="جزئیات سازمان‌ها" />
+            <StackPanel
+                Grid.Row="1"
+                Grid.Column="0"
+                Orientation="Horizontal">
+                <Button
+                    Name="ButtonNewOrganizationInfo"
+                    Click="ButtonNewOrganizationInfo_Click"
+                    ContentTemplate="{StaticResource AddImageButton}"
+                    Style="{StaticResource BlueButton}"
+                    ToolTip="افزودن جزئیات جدید سازمان" />
+                <Button
+                    Name="ButtonEditOrganizationInfo"
+                    Click="ButtonEditOrganizationInfo_Click"
+                    ContentTemplate="{StaticResource EditImageButton}"
+                    Style="{StaticResource YellowButton}"
+                    ToolTip="ویرایش جزئیات سازمان انتخاب‌شده" />
+                <Button
+                    Name="ButtonDeleteOrganizationInfo"
+                    Click="ButtonDeleteOrganizationInfo_Click"
+                    ContentTemplate="{StaticResource DeleteImageButton}"
+                    Style="{StaticResource RedButton}"
+                    ToolTip="حذف جزئیات سازمان انتخاب‌شده" />
+            </StackPanel>
+            <TextBox
+                Name="TextBoxSearchOrganizationInfo"
+                Grid.Row="1"
+                Grid.Column="1"
+                VerticalContentAlignment="Center"
+                TextChanged="TextBoxSearchOrganizationInfo_TextChanged"
+                ToolTip="جستجو در جزئیات سازمان">
+                <TextBox.Background>
+                    <ImageBrush
+                        AlignmentX="Right"
+                        ImageSource="/Contents/Images/search-9-xxl.png"
+                        Stretch="Uniform" />
+                </TextBox.Background>
+            </TextBox>
+            <DataGrid
+                Name="DataGridOrganizationInformation"
+                Grid.Row="2"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                AutoGeneratingColumn="DataGrid_AutoGeneratingColumn"
+                SelectionChanged="DataGridOrganizationInformation_SelectionChanged" />
+        </Grid>
+        <Grid
+            Grid.Row="2"
+            Grid.Column="0"
+            Grid.ColumnSpan="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <TextBlock
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Text="زیرمجموعه‌ها" />
+            <StackPanel
+                Grid.Row="1"
+                Grid.Column="0"
+                Orientation="Horizontal">
+                <Button
+                    Name="ButtonNewSubset"
+                    Click="ButtonNewSubset_Click"
+                    ContentTemplate="{StaticResource AddImageButton}"
+                    Style="{StaticResource BlueButton}"
+                    ToolTip="افزودن زیرمجموعه‌ی جدید" />
+                <Button
+                    Name="ButtonEditSubset"
+                    Click="ButtonEditSubset_Click"
+                    ContentTemplate="{StaticResource EditImageButton}"
+                    Style="{StaticResource YellowButton}"
+                    ToolTip="ویرایش زیرمجموعه‌ی انتخاب‌شده" />
+                <Button
+                    Name="ButtonDeleteSubset"
+                    Click="ButtonDeleteSubset_Click"
+                    ContentTemplate="{StaticResource DeleteImageButton}"
+                    Style="{StaticResource RedButton}"
+                    ToolTip="حذف زیرمجموعه‌ی انتخاب‌شده" />
+            </StackPanel>
+            <TextBox
+                Name="TextBoxSearchSubset"
+                Grid.Row="1"
+                Grid.Column="1"
+                VerticalContentAlignment="Center"
+                TextChanged="TextBoxSearchSubset_TextChanged"
+                ToolTip="جستجو در زیرمجموعه‌ها">
+                <TextBox.Background>
+                    <ImageBrush
+                        AlignmentX="Right"
+                        ImageSource="/Contents/Images/search-9-xxl.png"
+                        Stretch="Uniform" />
+                </TextBox.Background>
+            </TextBox>
+            <DataGrid
+                Name="DataGridSubsets"
+                Grid.Row="2"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                AutoGeneratingColumn="DataGrid_AutoGeneratingColumn"
+                SelectionChanged="DataGridSubsets_SelectionChanged" />
+        </Grid>
+    </Grid>
+</Window>

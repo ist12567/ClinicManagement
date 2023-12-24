@@ -1,0 +1,272 @@
+﻿<Window
+    x:Class="ACDClinicManagement.App.Views.GeneralSettingsViews.GeneralSettingsWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="اطلاعات پایه‌ای"
+    KeyDown="Window_KeyDown"
+    Loaded="Window_Loaded"
+    Style="{StaticResource WindowStyle}">
+    <Grid Style="{StaticResource WindowBodyGridStyle}">
+        <TabControl Style="{StaticResource TabControlGeneral}">
+            <TabControl.Resources>
+                <Style TargetType="TabItem">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="TabItem">
+                                <Border
+                                    Name="Border"
+                                    Margin="2,0"
+                                    BorderBrush="#0245A3"
+                                    BorderThickness="1,1,1,0"
+                                    CornerRadius="4,4,0,0">
+                                    <ContentPresenter
+                                        x:Name="ContentSite"
+                                        Margin="10,2"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        ContentSource="Header" />
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter TargetName="Border" Property="Background" Value="#0245A3" />
+                                    </Trigger>
+                                    <Trigger Property="IsSelected" Value="False">
+                                        <Setter TargetName="Border" Property="Background" Value="White" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </TabControl.Resources>
+            <TabItem Header="بانک‌ها">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Orientation="Horizontal">
+                        <Button
+                            Name="ButtonNewBank"
+                            Click="ButtonNewBank_Click"
+                            ContentTemplate="{StaticResource AddImageButton}"
+                            Style="{StaticResource BlueButton}"
+                            ToolTip="افزودن بانک جدید" />
+                        <Button
+                            Name="ButtonEditBank"
+                            Click="ButtonEditBank_Click"
+                            ContentTemplate="{StaticResource EditImageButton}"
+                            Style="{StaticResource YellowButton}"
+                            ToolTip="ویرایش بانک انتخاب‌شده" />
+                        <Button
+                            Name="ButtonDeleteBank"
+                            Click="ButtonDeleteBank_Click"
+                            ContentTemplate="{StaticResource DeleteImageButton}"
+                            Style="{StaticResource RedButton}"
+                            ToolTip="حذف بانک انتخاب‌شده" />
+                    </StackPanel>
+                    <TextBox
+                        Name="TextBoxSearchBank"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        VerticalContentAlignment="Center"
+                        TextChanged="TextBoxSearchBank_TextChanged"
+                        ToolTip="جستجو در بانک‌ها">
+                        <TextBox.Background>
+                            <ImageBrush
+                                AlignmentX="Right"
+                                ImageSource="/Contents/Images/search-9-xxl.png"
+                                Stretch="Uniform" />
+                        </TextBox.Background>
+                    </TextBox>
+                    <DataGrid
+                        Name="DataGridBanks"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        AutoGeneratingColumn="DataGrid_AutoGeneratingColumn"
+                        SelectionChanged="DataGridBanks_SelectionChanged" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="ارزش افزوده‌ها">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Orientation="Horizontal">
+                        <Button
+                            Name="ButtonNewValueAdded"
+                            Click="ButtonNewValueAdded_Click"
+                            ContentTemplate="{StaticResource AddImageButton}"
+                            Style="{StaticResource BlueButton}"
+                            ToolTip="افزودن ارزش افزوده جدید" />
+                        <Button
+                            Name="ButtonEditValueAdded"
+                            Click="ButtonEditValueAdded_Click"
+                            ContentTemplate="{StaticResource EditImageButton}"
+                            Style="{StaticResource YellowButton}"
+                            ToolTip="ویرایش ارزش افزوده‌ی انتخاب‌شده" />
+                        <Button
+                            Name="ButtonDeleteValueAdded"
+                            Click="ButtonDeleteValueAdded_Click"
+                            ContentTemplate="{StaticResource DeleteImageButton}"
+                            Style="{StaticResource RedButton}"
+                            ToolTip="حذف ارزش افزوده‌ی انتخاب‌شده" />
+                    </StackPanel>
+                    <TextBox
+                        Name="TextBoxSearchValueAdded"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        VerticalContentAlignment="Center"
+                        TextChanged="TextBoxSearchValueAdded_TextChanged"
+                        ToolTip="جستجو در ارزش افزوده‌ها">
+                        <TextBox.Background>
+                            <ImageBrush
+                                AlignmentX="Right"
+                                ImageSource="/Contents/Images/search-9-xxl.png"
+                                Stretch="Uniform" />
+                        </TextBox.Background>
+                    </TextBox>
+                    <DataGrid
+                        Name="DataGridValuesAdded"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        AutoGeneratingColumn="DataGrid_AutoGeneratingColumn"
+                        SelectionChanged="DataGridValuesAdded_SelectionChanged" />
+                </Grid>
+            </TabItem>
+            <TabItem Name="TabItemPublicVehicles" Header="نسخه‌ها و ویژگی‌های نسخه‌ها">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Orientation="Horizontal">
+                            <Button
+                                Name="ButtonNewVersion"
+                                Click="ButtonNewVersion_Click"
+                                ContentTemplate="{StaticResource AddImageButton}"
+                                Style="{StaticResource BlueButton}"
+                                ToolTip="افزودن نسخه‌ی جدید" />
+                            <Button
+                                Name="ButtonEditVersion"
+                                Click="ButtonEditVersion_Click"
+                                ContentTemplate="{StaticResource EditImageButton}"
+                                Style="{StaticResource YellowButton}"
+                                ToolTip="ویرایش نسخه‌ی انتخاب‌شده" />
+                            <Button
+                                Name="ButtonDeleteVersion"
+                                Click="ButtonDeleteVersion_Click"
+                                ContentTemplate="{StaticResource DeleteImageButton}"
+                                Style="{StaticResource RedButton}"
+                                ToolTip="حذف نسخه‌ی انتخاب‌شده" />
+                        </StackPanel>
+                        <TextBox
+                            Name="TextBoxSearchVersion"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            VerticalContentAlignment="Center"
+                            TextChanged="TextBoxSearchVersion_TextChanged"
+                            ToolTip="جستجو در نسخه‌ها">
+                            <TextBox.Background>
+                                <ImageBrush
+                                    AlignmentX="Right"
+                                    ImageSource="/Contents/Images/search-9-xxl.png"
+                                    Stretch="Uniform" />
+                            </TextBox.Background>
+                        </TextBox>
+                        <DataGrid
+                            Name="DataGridVersions"
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            AutoGeneratingColumn="DataGrid_AutoGeneratingColumn"
+                            SelectionChanged="DataGridVersions_SelectionChanged" />
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Orientation="Horizontal">
+                            <Button
+                                Name="ButtonNewVersionFeature"
+                                Click="ButtonNewVersionFeature_Click"
+                                ContentTemplate="{StaticResource AddImageButton}"
+                                Style="{StaticResource BlueButton}"
+                                ToolTip="افزودن ویژگی نسخه‌ی جدید" />
+                            <Button
+                                Name="ButtonEditVersionFeature"
+                                Click="ButtonEditVersionFeature_Click"
+                                ContentTemplate="{StaticResource EditImageButton}"
+                                Style="{StaticResource YellowButton}"
+                                ToolTip="ویرایش ویژگی نسخه‌ی انتخاب‌شده" />
+                            <Button
+                                Name="ButtonDeleteVersionFeature"
+                                Click="ButtonDeleteVersionFeature_Click"
+                                ContentTemplate="{StaticResource DeleteImageButton}"
+                                Style="{StaticResource RedButton}"
+                                ToolTip="حذف ویژگی نسخه‌ی انتخاب‌شده" />
+                        </StackPanel>
+                        <TextBox
+                            Name="TextBoxSearchVersionFeature"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            VerticalContentAlignment="Center"
+                            TextChanged="TextBoxSearchVersionFeature_TextChanged"
+                            ToolTip="جستجو در ویژگی‌های نسخه">
+                            <TextBox.Background>
+                                <ImageBrush
+                                    AlignmentX="Right"
+                                    ImageSource="/Contents/Images/search-9-xxl.png"
+                                    Stretch="Uniform" />
+                            </TextBox.Background>
+                        </TextBox>
+                        <DataGrid
+                            Name="DataGridVersionFeatures"
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            AutoGeneratingColumn="DataGrid_AutoGeneratingColumn"
+                            SelectionChanged="DataGridVersionFeatures_SelectionChanged" />
+                    </Grid>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

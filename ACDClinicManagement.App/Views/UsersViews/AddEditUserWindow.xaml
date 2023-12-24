@@ -1,0 +1,212 @@
+﻿<Window
+    x:Class="ACDClinicManagement.App.Views.UsersViews.AddEditUserWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title=""
+    KeyDown="Window_KeyDown"
+    Loaded="Window_Loaded"
+    Style="{StaticResource WindowStyle}">
+    <ScrollViewer FlowDirection="RightToLeft" VerticalScrollBarVisibility="Auto">
+        <Grid Style="{StaticResource WindowBodyGridStyle}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <TextBlock
+                Grid.Row="1"
+                Grid.Column="0"
+                Style="{StaticResource TitleStyleTextBlock}"
+                Text="نام" />
+            <TextBox
+                Name="TextBoxFirstName"
+                Grid.Row="1"
+                Grid.Column="1"
+                Style="{StaticResource RightToLeftStyleTextBox}" />
+            <TextBlock
+                Grid.Row="1"
+                Grid.Column="2"
+                Style="{StaticResource TitleStyleTextBlock}"
+                Text="نام خانوادگی" />
+            <TextBox
+                Name="TextBoxLastName"
+                Grid.Row="1"
+                Grid.Column="3"
+                Style="{StaticResource RightToLeftStyleTextBox}" />
+            <TextBlock
+                Grid.Row="2"
+                Grid.Column="0"
+                Style="{StaticResource TitleStyleTextBlock}"
+                Text="نوع کاربری" />
+            <ComboBox
+                Name="ComboBoxUserType"
+                Grid.Row="2"
+                Grid.Column="1"
+                SelectionChanged="ComboBoxUserType_SelectionChanged" />
+            <TextBlock
+                Grid.Row="2"
+                Grid.Column="2"
+                Style="{StaticResource TitleStyleTextBlock}"
+                Text="نام کاربری" />
+            <TextBox
+                Name="TextBoxUserName"
+                Grid.Row="2"
+                Grid.Column="3"
+                Style="{StaticResource RightToLeftStyleTextBox}" />
+            <TextBlock
+                Grid.Row="3"
+                Grid.Column="0"
+                Style="{StaticResource TitleStyleTextBlock}"
+                Text="کلمه‌ی عبور" />
+            <PasswordBox
+                Name="PasswordBoxPassword"
+                Grid.Row="3"
+                Grid.Column="1" />
+            <TextBlock
+                Grid.Row="3"
+                Grid.Column="2"
+                Style="{StaticResource TitleStyleTextBlock}"
+                Text="تکرار کلمه‌ی عبور" />
+            <PasswordBox
+                Name="PasswordBoxRePasssword"
+                Grid.Row="3"
+                Grid.Column="3" />
+            <TextBlock
+                Grid.Row="4"
+                Grid.Column="0"
+                Style="{StaticResource TitleStyleTextBlock}"
+                Text="شماره‌ی تلفن" />
+            <TextBox
+                Name="TextBoxTellNumber"
+                Grid.Row="4"
+                Grid.Column="1"
+                Style="{StaticResource RightToLeftStyleTextBox}" />
+            <TextBlock
+                Grid.Row="4"
+                Grid.Column="2"
+                Style="{StaticResource TitleStyleTextBlock}"
+                Text="شماره‌ی تلفن همراه" />
+            <TextBox
+                Name="TextBoxCellPhoneNumber"
+                Grid.Row="4"
+                Grid.Column="3"
+                Style="{StaticResource RightToLeftStyleTextBox}" />
+            <TextBlock
+                Grid.Row="5"
+                Grid.Column="0"
+                Style="{StaticResource TitleStyleTextBlock}"
+                Text="استان" />
+            <ComboBox
+                Name="ComboBoxProvinces"
+                Grid.Row="5"
+                Grid.Column="1"
+                SelectionChanged="ComboBoxProvinces_SelectionChanged" />
+            <TextBlock
+                Grid.Row="5"
+                Grid.Column="2"
+                Style="{StaticResource TitleStyleTextBlock}"
+                Text="شهر" />
+            <ComboBox
+                Name="ComboBoxCities"
+                Grid.Row="5"
+                Grid.Column="3"
+                SelectionChanged="ComboBoxCities_SelectionChanged" />
+            <TextBlock
+                Grid.Row="6"
+                Grid.Column="0"
+                Style="{StaticResource TitleStyleTextBlock}"
+                Text="سازمان" />
+            <ComboBox
+                Name="ComboBoxOrganizations"
+                Grid.Row="6"
+                Grid.Column="1"
+                SelectionChanged="ComboBoxOrganizations_SelectionChanged" />
+            <TextBlock
+                Grid.Row="6"
+                Grid.Column="2"
+                Style="{StaticResource TitleStyleTextBlock}"
+                Text="زیرمجموعه" />
+            <ComboBox
+                Name="ComboBoxSubsets"
+                Grid.Row="6"
+                Grid.Column="3" />
+            <TextBlock
+                Grid.Row="7"
+                Grid.Column="0"
+                Style="{StaticResource TitleStyleTextBlock}"
+                Text="آدرس" />
+            <TextBox
+                Name="TextBoxAddress"
+                Grid.Row="7"
+                Grid.Column="1"
+                Grid.ColumnSpan="3"
+                Style="{StaticResource RightToLeftStyleTextBox}" />
+            <StackPanel
+                Grid.Row="8"
+                Grid.Column="0"
+                Grid.ColumnSpan="4"
+                HorizontalAlignment="Center"
+                Orientation="Horizontal">
+                <CheckBox
+                    Name="CheckBoxActiveMode"
+                    Margin="20,0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Content="فعال"
+                    FlowDirection="LeftToRight" />
+                <StackPanel
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Orientation="Vertical">
+                    <Border
+                        Width="110"
+                        BorderBrush="#e0218a"
+                        BorderThickness="2">
+                        <Image Name="ImageUser" Stretch="Fill" />
+                    </Border>
+                    <Button
+                        Name="ButtonSelectImageUser"
+                        Width="110"
+                        VerticalAlignment="Center"
+                        Click="ButtonSelectImageUser_Click"
+                        ContentTemplate="{StaticResource RefreshImageButton}"
+                        Style="{StaticResource PurpleButton}"
+                        ToolTip="انتخاب عکس کاربر" />
+                </StackPanel>
+            </StackPanel>
+            <GroupBox
+                Grid.Row="9"
+                Grid.Column="0"
+                Grid.ColumnSpan="4"
+                Padding="5"
+                Header="سطوح دسترسی">
+                <WrapPanel Name="WrapPanelCliams" />
+            </GroupBox>
+            <Button
+                Grid.Row="10"
+                Grid.Column="0"
+                Grid.ColumnSpan="4"
+                HorizontalAlignment="center"
+                Click="ButtonSave_Click"
+                ContentTemplate="{StaticResource SaveImageButton}"
+                IsDefault="True"
+                Style="{StaticResource GreenButton}"
+                ToolTip="ثبت" />
+        </Grid>
+    </ScrollViewer>
+</Window>

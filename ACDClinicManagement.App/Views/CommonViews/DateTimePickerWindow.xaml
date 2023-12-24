@@ -1,0 +1,122 @@
+﻿<Window
+    x:Class="ACDClinicManagement.App.Views.CommonViews.DateTimePickerWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:xceed="http://schemas.xceed.com/wpf/xaml/toolkit"
+    Title="انتخاب تاریخ"
+    KeyDown="Window_KeyDown"
+    Loaded="Window_Loaded"
+    Style="{StaticResource WindowStyle}">
+    <Grid Style="{StaticResource WindowBodyGridStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <TextBlock
+            Name="TextBlockMessage"
+            Grid.Row="0"
+            Grid.Column="0"
+            HorizontalAlignment="Center"
+            Style="{StaticResource TotalStyleTextBlock}"
+            TextWrapping="Wrap" />
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <TextBlock
+                Grid.Row="0"
+                Grid.Column="0"
+                Text="روز" />
+            <ComboBox
+                Name="ComboBoxDay"
+                Grid.Row="0"
+                Grid.Column="1" />
+            <TextBlock
+                Grid.Row="0"
+                Grid.Column="2"
+                Text="ماه" />
+            <ComboBox
+                Name="ComboBoxMonth"
+                Grid.Row="0"
+                Grid.Column="3"
+                SelectionChanged="ComboBoxMonth_SelectionChanged" />
+            <TextBlock
+                Grid.Row="0"
+                Grid.Column="4"
+                Text="سال" />
+            <ComboBox
+                Name="ComboBoxYear"
+                Grid.Row="0"
+                Grid.Column="5"
+                SelectionChanged="ComboBoxYear_SelectionChanged" />
+        </Grid>
+        <Grid
+            Grid.Row="2"
+            Grid.Column="0"
+            FlowDirection="LeftToRight">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="ساعت" />
+            <xceed:ShortUpDown
+                Name="ShortUpDownHour"
+                Grid.Column="1"
+                Maximum="23"
+                Minimum="0" />
+            <TextBlock Grid.Column="2" Text="دقیقه" />
+            <xceed:ShortUpDown
+                Name="ShortUpDownMinute"
+                Grid.Row="0"
+                Grid.Column="3"
+                Maximum="59"
+                Minimum="0" />
+        </Grid>
+        <Grid
+            Name="GridTrackingInfo"
+            Grid.Row="3"
+            Visibility="Collapsed">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <TextBlock
+                Grid.Column="0"
+                Style="{StaticResource TitleStyleTextBlock}"
+                Text="شماره‌ی سریال" />
+            <TextBox
+                Name="TextBoxTrackingCode"
+                Grid.Column="1"
+                FontSize="24"
+                FontWeight="Bold"
+                Style="{StaticResource LeftToRightStyleTextBox}" />
+        </Grid>
+        <StackPanel
+            Grid.Row="4"
+            HorizontalAlignment="Center"
+            Orientation="Horizontal">
+            <Button
+                Click="ButtonConfirm_Click"
+                ContentTemplate="{StaticResource CheckMarkImageButton}"
+                IsDefault="True"
+                Style="{StaticResource GreenButton}"
+                ToolTip="تأیید" />
+            <Button
+                Click="ButtonCancel_Click"
+                ContentTemplate="{StaticResource CancelImageButton}"
+                Style="{StaticResource RedButton}"
+                TabIndex="9"
+                ToolTip="انصراف" />
+        </StackPanel>
+    </Grid>
+</Window>

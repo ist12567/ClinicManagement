@@ -1,0 +1,44 @@
+﻿<Window
+    x:Class="ACDClinicManagement.App.Views.GeneralSettingsViews.AddEditVersionFeatureWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title=""
+    KeyDown="Window_KeyDown"
+    Loaded="Window_Loaded"
+    Style="{StaticResource WindowStyle}">
+    <Grid Style="{StaticResource WindowBodyGridStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <TextBlock
+            Name="TextBlockVersion"
+            Grid.Row="0"
+            Grid.ColumnSpan="2"
+            HorizontalAlignment="Center" />
+        <TextBlock
+            Grid.Row="1"
+            Grid.Column="0"
+            Style="{StaticResource TitleStyleTextBlock}"
+            Text="ویژگی" />
+        <TextBox
+            Name="TextBoxFeature"
+            Grid.Row="1"
+            Grid.Column="1"
+            Style="{StaticResource RightToLeftStyleTextBox}" />
+        <Button
+            Grid.Row="2"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Click="ButtonSave_Click"
+            ContentTemplate="{StaticResource SaveImageButton}"
+            IsDefault="True"
+            Style="{StaticResource GreenButton}"
+            ToolTip="ثبت" />
+    </Grid>
+</Window>

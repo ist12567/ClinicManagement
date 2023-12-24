@@ -1,0 +1,100 @@
+﻿<Window
+    x:Class="ACDClinicManagement.App.Views.AboutViews.AboutWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="درباره"
+    KeyDown="Window_KeyDown"
+    Loaded="Window_Loaded"
+    Style="{StaticResource WindowStyle}">
+    <ScrollViewer FlowDirection="RightToLeft" VerticalScrollBarVisibility="Auto">
+        <Grid Style="{StaticResource WindowBodyGridStyle}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <StackPanel
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="2">
+                <TextBlock HorizontalAlignment="Center" Text="نسخه‌ی نرم‌افزار" />
+                <TextBlock Name="TextBlockVersion" HorizontalAlignment="Center" />
+                <Button
+                    Click="ButtonUpdateSoftware_Click"
+                    ContentTemplate="{StaticResource RefreshImageButton}"
+                    Style="{StaticResource PurpleButton}"
+                    ToolTip="به‌روزرسانی نرم‌افزار" />
+            </StackPanel>
+            <TextBlock
+                Grid.Row="1"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Style="{StaticResource WarningStyleTextBlock}"
+                Text="ویژگی‌های این نسخه" />
+            <DataGrid
+                Name="DataGridVersionFeatures"
+                Grid.Row="2"
+                Grid.Column="0"
+                Grid.ColumnSpan="2" />
+            <GroupBox
+                Grid.Row="3"
+                Grid.Column="0"
+                Foreground="Green">
+                <GroupBox.Header>
+                    <StackPanel>
+                        <Image Source="/Contents/Images/Stethoscope.ico" />
+                        <TextBlock Foreground="Black" Text="درباره‌ی نرم‌افزار ..." />
+                    </StackPanel>
+                </GroupBox.Header>
+                <TextBlock Name="TextBlockSoftwareAbout" TextWrapping="Wrap" />
+            </GroupBox>
+            <GroupBox
+                Grid.Row="3"
+                Grid.Column="1"
+                Foreground="Green">
+                <GroupBox.Header>
+                    <StackPanel>
+                        <Image Source="/Contents/Images/AsiaCando.gif" />
+                        <TextBlock Foreground="Black" Text="درباره‌ی آسیاکندو ..." />
+                    </StackPanel>
+                </GroupBox.Header>
+                <TextBlock Name="TextBlockCompanyAbout" TextWrapping="Wrap" />
+            </GroupBox>
+            <StackPanel
+                Grid.Row="4"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                HorizontalAlignment="Center"
+                FlowDirection="LeftToRight"
+                Orientation="Horizontal">
+                <TextBlock Foreground="Blue">
+                    <Hyperlink NavigateUri="http://www.asiacando.com" RequestNavigate="Hyperlink_RequestNavigate">
+                        <Image Source="/Contents/Images/home.png" Style="{StaticResource ImageInButtonStyle}" />
+                    </Hyperlink>
+                </TextBlock>
+                <TextBlock Foreground="Blue">
+                    <Hyperlink NavigateUri="https://ir.linkedin.com/in/sagharmax" RequestNavigate="Hyperlink_RequestNavigate">
+                        <Image Source="/Contents/Images/linkedin-xxl.png" Style="{StaticResource ImageInButtonStyle}" />
+                    </Hyperlink>
+                </TextBlock>
+                <TextBlock Foreground="Blue">
+                    <Hyperlink NavigateUri="https://twitter.com/SagharMax" RequestNavigate="Hyperlink_RequestNavigate">
+                        <Image Source="/Contents/Images/twitter-xxl.png" Style="{StaticResource ImageInButtonStyle}" />
+                    </Hyperlink>
+                </TextBlock>
+                <TextBlock Foreground="Blue">
+                    <Hyperlink NavigateUri="https://instagram.com/sagharmax" RequestNavigate="Hyperlink_RequestNavigate">
+                        <Image Source="/Contents/Images/instagram-xxl.png" Style="{StaticResource ImageInButtonStyle}" />
+                    </Hyperlink>
+                </TextBlock>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</Window>

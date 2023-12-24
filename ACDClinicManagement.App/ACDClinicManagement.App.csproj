@@ -1,0 +1,564 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{04615F3B-EA83-4339-98DE-BA498F9E6221}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ACDClinicManagement.App</RootNamespace>
+    <AssemblyName>ACDClinicManagement.App</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <LangVersion>latest</LangVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <PublishUrl>ftp://www.asiacando.com/httpdocs/Applications/ACDClinicManagement/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>true</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>http://www.asiacando.com/Applications/ACDClinicManagement/</InstallUrl>
+    <SupportUrl>http://www.asiacando.com</SupportUrl>
+    <ProductName>نرم‌افزار مدیریت مطب</ProductName>
+    <PublisherName>مجتمع داده‌آوران آسیاکندو</PublisherName>
+    <SuiteName>مجتمع داده‌آوران آسیاکندو</SuiteName>
+    <MinimumRequiredVersion>2.4.0.0</MinimumRequiredVersion>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>ACDCMSetup.html</WebPage>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>2.4.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>true</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <BootstrapperComponentsLocation>Absolute</BootstrapperComponentsLocation>
+    <BootstrapperComponentsUrl>http://www.asiacando.com/Applications/ACDClinicManagement/</BootstrapperComponentsUrl>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Stethoscope.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>7BB645FD201BF494CCEB160B5AE851F3BA4781EF</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>ACDClinicManagement.App_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MhclassLib">
+      <HintPath>..\Dependencies\MhclassLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization">
+      <HintPath>..\Dependencies\Microsoft.ReportViewer.DataVisualization.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design">
+      <HintPath>..\Dependencies\Microsoft.ReportViewer.Design.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.2.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\Microsoft.ReportViewer.ProcessingObjectModel.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms">
+      <HintPath>..\Dependencies\Microsoft.ReportViewer.WinForms.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="PersianDateTime, Version=1.1.5082.36395, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PersianDateTime.1.1.5082.36395\lib\net40\PersianDateTime.dll</HintPath>
+    </Reference>
+    <Reference Include="POS_PC_v3">
+      <HintPath>..\Dependencies\POS_PC_v3.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="Xceed.Wpf.AvalonDock, Version=4.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.4.5.1\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=4.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.4.5.1\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=4.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.4.5.1\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=4.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.4.5.1\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=4.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.4.5.1\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="DataSetMain.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetMain.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AboutViews\AboutWindow.xaml.cs">
+      <DependentUpon>AboutWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BackupRestoreViews\BackupRestoreWindow.xaml.cs">
+      <DependentUpon>BackupRestoreWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ChangePasswordViews\ChangePasswordWindow.xaml.cs">
+      <DependentUpon>ChangePasswordWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CommonViews\DateTimePickerWindow.xaml.cs">
+      <DependentUpon>DateTimePickerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CommonViews\PayByPosWindow.xaml.cs">
+      <DependentUpon>PayByPosWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CommonViews\ShowImageWindow.xaml.cs">
+      <DependentUpon>ShowImageWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CommonViews\ShowReportWindow.xaml.cs">
+      <DependentUpon>ShowReportWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CommonViews\WaitWindow.xaml.cs">
+      <DependentUpon>WaitWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GeneralSettingsViews\AddEditBankWindow.xaml.cs">
+      <DependentUpon>AddEditBankWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GeneralSettingsViews\AddEditValueAddedWindow.xaml.cs">
+      <DependentUpon>AddEditValueAddedWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GeneralSettingsViews\AddEditVersionFeatureWindow.xaml.cs">
+      <DependentUpon>AddEditVersionFeatureWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GeneralSettingsViews\AddEditVersionWindow.xaml.cs">
+      <DependentUpon>AddEditVersionWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GeneralSettingsViews\GeneralSettingsWindow.xaml.cs">
+      <DependentUpon>GeneralSettingsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HelpViews\HelpWindow.xaml.cs">
+      <DependentUpon>HelpWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LocationsViews\AddEditCityWindow.xaml.cs">
+      <DependentUpon>AddEditCityWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LocationsViews\AddEditOrganizationWindow.xaml.cs">
+      <DependentUpon>AddEditOrganizationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LocationsViews\AddEditProvinceWindow.xaml.cs">
+      <DependentUpon>AddEditProvinceWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LocationsViews\LocationsWindow.xaml.cs">
+      <DependentUpon>LocationsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoginViews\LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OrganizationsSubsetsViews\AddEditOrganizationInfoWindow.xaml.cs">
+      <DependentUpon>AddEditOrganizationInfoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OrganizationsSubsetsViews\AddEditSubsetWindow.xaml.cs">
+      <DependentUpon>AddEditSubsetWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OrganizationsSubsetsViews\OrganizationsSubsetsWindow.xaml.cs">
+      <DependentUpon>OrganizationsSubsetsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PeopleViews\AddEditPersonWindow.xaml.cs">
+      <DependentUpon>AddEditPersonWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PeopleViews\PeopleWindow.xaml.cs">
+      <DependentUpon>PeopleWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DailyReferencesViews\DailyReferencesWindow.xaml.cs">
+      <DependentUpon>DailyReferencesWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RecordsViews\AddEditOphthalmologyRecordWindow.xaml.cs">
+      <DependentUpon>AddEditOphthalmologyRecordWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RecordsViews\OphthalmologyRecordsWindow.xaml.cs">
+      <DependentUpon>OphthalmologyRecordsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ResetPasswordViews\ResetPasswordWindow.xaml.cs">
+      <DependentUpon>ResetPasswordWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UsersViews\AddEditUserWindow.xaml.cs">
+      <DependentUpon>AddEditUserWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UsersViews\UsersWindow.xaml.cs">
+      <DependentUpon>UsersWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfHelper.cs" />
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Views\AboutViews\AboutWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\BackupRestoreViews\BackupRestoreWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ChangePasswordViews\ChangePasswordWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CommonViews\DateTimePickerWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CommonViews\PayByPosWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CommonViews\ShowImageWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CommonViews\ShowReportWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CommonViews\WaitWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\GeneralSettingsViews\AddEditBankWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\GeneralSettingsViews\AddEditValueAddedWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\GeneralSettingsViews\AddEditVersionFeatureWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\GeneralSettingsViews\AddEditVersionWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\GeneralSettingsViews\GeneralSettingsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\HelpViews\HelpWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\LocationsViews\AddEditCityWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\LocationsViews\AddEditOrganizationWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\LocationsViews\AddEditProvinceWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\LocationsViews\LocationsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\LoginViews\LoginWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\OrganizationsSubsetsViews\AddEditOrganizationInfoWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\OrganizationsSubsetsViews\AddEditSubsetWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\OrganizationsSubsetsViews\OrganizationsSubsetsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PeopleViews\AddEditPersonWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PeopleViews\PeopleWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DailyReferencesViews\DailyReferencesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="Views\RecordsViews\AddEditOphthalmologyRecordWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RecordsViews\OphthalmologyRecordsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ResetPasswordViews\ResetPasswordWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UsersViews\AddEditUserWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UsersViews\UsersWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="ACDClinicManagement.App_TemporaryKey.pfx" />
+    <None Include="DataSetMain.xsc">
+      <DependentUpon>DataSetMain.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetMain.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetMain.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetMain.xss">
+      <DependentUpon>DataSetMain.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Contents\Images\about-xxl.png" />
+    <Resource Include="Contents\Images\accept-database-xxl.png" />
+    <Resource Include="Contents\Images\account-login-xxl.png" />
+    <Resource Include="Contents\Images\add-link-xxl.png" />
+    <Resource Include="Contents\Images\add-xxl.png" />
+    <Resource Include="Contents\Images\Ansar.png" />
+    <Resource Include="Contents\Images\appointment-reminders-xxl.png" />
+    <Resource Include="Contents\Images\archive-2-xxl.png" />
+    <Resource Include="Contents\Images\archive-xxl.ico" />
+    <Resource Include="Contents\Images\archive-xxl.png" />
+    <Resource Include="Contents\Images\arrow-88-xxl.png" />
+    <Resource Include="Contents\Images\arrow-96-xxl.png" />
+    <Resource Include="Contents\Images\AsiaCando.gif" />
+    <Resource Include="Contents\Images\available-updates-xxl.png" />
+    <Resource Include="Contents\Images\bank-xxl.png" />
+    <Resource Include="Contents\Images\banknotes-xxl.png" />
+    <Resource Include="Contents\Images\bell-3-xxl.png" />
+    <Resource Include="Contents\Images\bill-xxl.png" />
+    <Resource Include="Contents\Images\bill2-xxl.png" />
+    <Resource Include="Contents\Images\blank-file-xxl.png" />
+    <Resource Include="Contents\Images\BsiLogo.png" />
+    <Resource Include="Contents\Images\Businesses.png" />
+    <Resource Include="Contents\Images\businessman-xxl.png" />
+    <Resource Include="Contents\Images\cancel-xxl.png" />
+    <Resource Include="Contents\Images\change-user-xxl.png" />
+    <Resource Include="Contents\Images\check-mark-3-blue-xxl.png" />
+    <Resource Include="Contents\Images\check-mark-3-xxl.png" />
+    <Resource Include="Contents\Images\check-mark-6-xxl.png" />
+    <Resource Include="Contents\Images\check-mark-xxl.png" />
+    <Resource Include="Contents\Images\circle-outline-xxl.png" />
+    <Resource Include="Contents\Images\close-window-xxl.png" />
+    <Resource Include="Contents\Images\computer-xxl.png" />
+    <Resource Include="Contents\Images\conference-call-256.png" />
+    <Resource Include="Contents\Images\conference-xxl.png" />
+    <Resource Include="Contents\Images\data-backup-xxl.png" />
+    <Resource Include="Contents\Images\data-configuration-xxl.png" />
+    <Resource Include="Contents\Images\database-5-xxl.png" />
+    <Resource Include="Contents\Images\delete-2-xxl.png" />
+    <Resource Include="Contents\Images\delete-xxl.png" />
+    <Resource Include="Contents\Images\documents-xxl.png" />
+    <Resource Include="Contents\Images\edit-white-xxl.png" />
+    <Resource Include="Contents\Images\edit-xxl.png" />
+    <Resource Include="Contents\Images\Ghalibafan.png" />
+    <Resource Include="Contents\Images\google-alerts-xxl.png" />
+    <Resource Include="Contents\Images\google-plus-xxl.png" />
+    <Resource Include="Contents\Images\Hasiban Majma.png" />
+    <Resource Include="Contents\Images\Hasiban.png" />
+    <Resource Include="Contents\Images\help-xxl.png" />
+    <Resource Include="Contents\Images\home.png" />
+    <Resource Include="Contents\Images\info-xxl.png" />
+    <Resource Include="Contents\Images\instagram-xxl.png" />
+    <Resource Include="Contents\Images\key-2-xxl.png" />
+    <Resource Include="Contents\Images\key-3-xxl.png" />
+    <Resource Include="Contents\Images\key-4-xxl-Blue.png" />
+    <Resource Include="Contents\Images\key-4-xxl.png" />
+    <Resource Include="Contents\Images\key-xxl.png" />
+    <Resource Include="Contents\Images\keyboard-2-xxl.png" />
+    <Resource Include="Contents\Images\layers-256-blue.png" />
+    <Resource Include="Contents\Images\layers-256.png" />
+    <Resource Include="Contents\Images\linkedin-xxl.png" />
+    <Resource Include="Contents\Images\list-view-xxl.png" />
+    <Resource Include="Contents\Images\MakuFreeZone.jpg" />
+    <Resource Include="Contents\Images\Man.png" />
+    <Resource Include="Contents\Images\megaphone-2-xxl.png" />
+    <Resource Include="Contents\Images\money-2-xxl.png" />
+    <Resource Include="Contents\Images\money-bag-xxl.png" />
+    <Resource Include="Contents\Images\money-xxl.png" />
+    <Resource Include="Contents\Images\month-view-xxl.png" />
+    <Resource Include="Contents\Images\MunicipalsTaxes.ico" />
+    <Resource Include="Contents\Images\organization-xxl.png" />
+    <Resource Include="Contents\Images\Panels.png" />
+    <Resource Include="Contents\Images\photo-xxl.png" />
+    <Resource Include="Contents\Images\Plaque.png" />
+    <Resource Include="Contents\Images\Pos-Terminal.png" />
+    <Resource Include="Contents\Images\printer-3-xxl.png" />
+    <Resource Include="Contents\Images\product-xxl.png" />
+    <Resource Include="Contents\Images\recycle-xxl.ico" />
+    <Resource Include="Contents\Images\refresh-2-xxl.png" />
+    <Resource Include="Contents\Images\Replica.png" />
+    <Resource Include="Contents\Images\report-2-xxl.png" />
+    <Resource Include="Contents\Images\report-3-purple.png" />
+    <Resource Include="Contents\Images\report-3-xxl.png" />
+    <Resource Include="Contents\Images\report-xxl.png" />
+    <Resource Include="Contents\Images\reviewer-xxl.png" />
+    <Resource Include="Contents\Images\rotate-clockwise-xxl.png" />
+    <Resource Include="Contents\Images\rotate-counter-clockwise-xxl.png" />
+    <Resource Include="Contents\Images\save-white-xxl.png" />
+    <Resource Include="Contents\Images\save-xxl.png" />
+    <Resource Include="Contents\Images\scanner-xxl.png" />
+    <Resource Include="Contents\Images\search-9-xxl.png" />
+    <Resource Include="Contents\Images\settings-5-xxl.png" />
+    <Resource Include="Contents\Images\ShakhesAndishan.ico" />
+    <Resource Include="Contents\Images\show-property-xxl.png" />
+    <Resource Include="Contents\Images\sinchronize-xxl.png" />
+    <Resource Include="Contents\Images\SMS.png" />
+    <Resource Include="Contents\Images\SMTS.ico" />
+    <Resource Include="Contents\Images\Stethoscope.ico" />
+    <Resource Include="Contents\Images\TransactionsManagement.ico" />
+    <Resource Include="Contents\Images\twitter-xxl.png" />
+    <Resource Include="Contents\Images\UrmiaCouncil.jpg" />
+    <Resource Include="Contents\Images\user-xxl.png" />
+    <Resource Include="Contents\Images\Vehicles.png" />
+    <Resource Include="Contents\Images\visible-xxl.png" />
+    <Resource Include="Contents\Images\WarningLogo.jpg" />
+    <Resource Include="Contents\Images\Wastes.png" />
+    <Resource Include="Contents\Images\wind-rose-256.png" />
+    <Resource Include="Contents\Images\Woman.png" />
+    <Resource Include="Contents\Images\x-mark-4-xxl.png" />
+    <Resource Include="Contents\Images\x-mark-xxl.png" />
+    <Resource Include="Contents\Images\yahoo-xxl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\ReportViews\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Stethoscope.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Contents\Images\doctor-2-xxl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ACDClinicManagement.AppHelpers\ACDClinicManagement.AppHelpers.csproj">
+      <Project>{d4f15af5-2069-4a77-8366-9ecee9255e63}</Project>
+      <Name>ACDClinicManagement.AppHelpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ACDClinicManagement.Common\ACDClinicManagement.Common.csproj">
+      <Project>{8b3d8f0d-d77c-46f2-8ab3-ca0e349ce96d}</Project>
+      <Name>ACDClinicManagement.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,47 @@
+﻿<Window
+    x:Class="ACDClinicManagement.App.Views.CommonViews.WaitWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="در حال پردازش"
+    MinWidth="520"
+    MaxWidth="520"
+    Background="#3474ec"
+    Loaded="Window_Loaded"
+    Style="{StaticResource WindowStyle}"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None">
+    <Grid Style="{StaticResource WindowBodyGridStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <ProgressBar
+            Grid.Row="0"
+            Width="500"
+            Height="25"
+            Margin="0,10"
+            FlowDirection="RightToLeft"
+            Foreground="#3474ec"
+            IsIndeterminate="True" />
+        <TextBlock
+            Name="TextBlockMessage"
+            Grid.Row="1"
+            HorizontalAlignment="Center"
+            Text="در حال پردازش ..." />
+        <TextBlock
+            Grid.Row="2"
+            HorizontalAlignment="Center"
+            Text="لطفاً کمی صبر کنید" />
+        <TextBlock
+            Name="TextBlockPoorConnection"
+            Grid.Row="3"
+            HorizontalAlignment="Center"
+            Foreground="White"
+            Text="پردازش عملیات مورد نظر، تابع کیفیت ارتباط شما با اینترنت است، این ارتباط هم‌اکنون با توجه به زمان سپری‌شده، ضعیف است"
+            TextAlignment="Center"
+            TextWrapping="Wrap"
+            Visibility="Collapsed" />
+    </Grid>
+</Window>
