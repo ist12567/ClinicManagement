@@ -157,9 +157,6 @@
     <Compile Include="Views\AboutViews\AboutWindow.xaml.cs">
       <DependentUpon>AboutWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\BackupRestoreViews\BackupRestoreWindow.xaml.cs">
-      <DependentUpon>BackupRestoreWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\ChangePasswordViews\ChangePasswordWindow.xaml.cs">
       <DependentUpon>ChangePasswordWindow.xaml</DependentUpon>
     </Compile>
@@ -258,10 +255,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\AboutViews\AboutWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\BackupRestoreViews\BackupRestoreWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
